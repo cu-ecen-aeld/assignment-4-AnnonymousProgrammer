@@ -48,9 +48,9 @@ bool start_thread_obtaining_mutex(pthread_t *thread, pthread_mutex_t *mutex,int 
      	ptr->wait_to_release_ms = wait_to_release_ms;
      	ptr->mutex = mutex;
      	pthread_t my_thread;
-     	int rc1 = pthread_create(&my_thread, NULL, threadfunc, (void *) ptr);
+     	int rc1 = pthread_create(&my_thread, NULL, &threadfunc, (void *) ptr);
      	if(rc1 != 0){
-     		//return false;
+     		return false;
      	}
      	//int rc2 = pthread_join(my_thread, NULL);
      	//if(rc2 != 0){
